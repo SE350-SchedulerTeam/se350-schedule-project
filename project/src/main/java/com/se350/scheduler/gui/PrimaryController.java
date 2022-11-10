@@ -1,4 +1,4 @@
-package com.se350.scheduler;
+package com.se350.scheduler.gui;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
