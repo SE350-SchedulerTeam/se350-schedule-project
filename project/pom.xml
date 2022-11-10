@@ -42,7 +42,7 @@
                         <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.se350.scheduler.gui.App</mainClass>
+                            <mainClass>com.se350.scheduler.App</mainClass>
                         </configuration>
                     </execution>
                 </executions>
