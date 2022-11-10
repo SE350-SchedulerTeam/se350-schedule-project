@@ -1,6 +1,7 @@
-package com.se350.scheduler.gui;
+package com.se350.scheduler;
 
 import java.io.IOException;
+
 import javafx.fxml.FXML;
 
 public class SecondaryController {
