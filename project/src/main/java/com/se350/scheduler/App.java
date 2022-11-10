@@ -1,4 +1,4 @@
-package com.se350.scheduler.gui;
+package com.se350.scheduler;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
