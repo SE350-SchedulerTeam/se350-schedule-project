@@ -21,8 +21,9 @@ public class Event {
         // default reminder = 30 minutes before
         Reminder r = new Reminder(30, TimeMeasurement.MINUTE, "You have an event!", timeslot.getStart_time(), timeslot.getDate());
         this.reminder = r;
-
     }
+    public Event(){}
+
 
     public void createReminder(long farBack, TimeMeasurement metric, String msg) {
         Reminder r = new Reminder(farBack, metric, msg, timeslot.getStart_time(), timeslot.getDate());
