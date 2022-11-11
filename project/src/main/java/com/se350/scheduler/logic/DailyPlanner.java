@@ -43,7 +43,7 @@ public class DailyPlanner implements Watcher{
 //    }
 
     //refactoring add event to use the observer pattern
-    boolean addEvent(Event e){
+    public boolean addEvent(Event e){
         events.add(e);
         //notification that even was added
         notifyObservers("Event Added " + e.getDesc());

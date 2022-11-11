@@ -12,13 +12,15 @@ public class ConsoleAlertMain {
         DailyPlanner dp = new DailyPlanner();
         Date start_date = new Date();
         start_date.setTime(start_date.getTime()+3000);
-
         Date end_date = new Date();
         end_date.setTime(end_date.getTime()+20000);
 
-        Event e = new Event(
-                "asdf",
-                "desc",
+        Notification notification = new Notification();
+        dp.registerObserver(notification);
+
+        Event work = new Event(
+                "event",
+                "event description",
                 EventType.WORK,
                 new TimeSlot(
                         LocalDate.now(),
@@ -26,10 +28,8 @@ public class ConsoleAlertMain {
                         LocalTime.now().plusMinutes(3)
                 )
         );
-        e.createReminder(30, TimeMeasurement.MINUTE, "Test Msg");
-
-
-        dp.addEvent(e);
-        System.out.println("added event");
+        work.createReminder(30, TimeMeasurement.MINUTE, "Test Msg");
+        dp.addEvent(work);
+        System.out.println(dp.addEvent(work));
     }
 }

@@ -1,5 +1,8 @@
 package com.se350.scheduler;
 
+import com.se350.scheduler.logic.DailyPlanner;
+import com.se350.scheduler.logic.Event;
+import com.se350.scheduler.logic.Notification;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
