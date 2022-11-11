@@ -1,35 +1,53 @@
 package com.se350.scheduler.logic;
 
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class TimeSlot {
-    private Date start_time;
-    private Date end_time;
+    private LocalDate date;
+    private LocalTime start_time;
+    private LocalTime end_time;
 
 
 
-    public TimeSlot (Date start_time, Date end_time) {
+    public TimeSlot (LocalDate date, LocalTime start_time, LocalTime end_time) {
+        this.date = date;
         this.start_time = start_time;
         this.end_time = end_time;
     }
 
     //@TODO: a method to check if a timeslot conflicts (public boolean conflicts(TimeSlot other)
 
-    public Date getStart_time() {
+    public LocalTime getStart_time() {
         return start_time;
     }
 
-    public void setStart_time(Date start_time) {
+    public void setStart_time(LocalTime start_time) {
         this.start_time = start_time;
     }
 
-    public Date getEnd_time() {
+    public LocalTime getEnd_time() {
         return end_time;
     }
 
-    public void setEnd_time(Date end_time) {
+    public void setEnd_time(LocalTime end_time) {
         this.end_time = end_time;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "TimeSlot{" +
+                "date=" + date +
+                ", start_time=" + start_time +
+                ", end_time=" + end_time +
+                '}';
     }
 }

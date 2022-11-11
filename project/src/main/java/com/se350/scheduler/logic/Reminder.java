@@ -1,41 +1,42 @@
 package com.se350.scheduler.logic;
 
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
 public class Reminder {
     private String msg;
-    private Date notifcation_time;
-    private Date event_start_time;
-    public Reminder (float farBack, TimeMeasurement metric, String msg, Date event_start_time) {
+    private LocalTime notification_time;
+    private LocalTime event_start_time;
+
+    private LocalDate notification_date;
+    public Reminder (long farBack, TimeMeasurement metric, String msg, LocalTime event_start_time, LocalDate event_start_date) {
         this.msg = msg;
         this.event_start_time = event_start_time;
+        this.notification_time = event_start_time;
+        this.notification_date = event_start_date;
         this.setDateTime(farBack, metric);
+
     }
 
     /*
      * Set the date and time the reminder will take place
      * Inputs: How far back to set the reminder
      */
-    private void setDateTime(float farBack, TimeMeasurement metric) {
+    private void setDateTime(long farBack, TimeMeasurement metric) {
         // set date and time that reminder must occur
         //@TODO: switch maybe
         if (metric == TimeMeasurement.MINUTE) {
-            Date new_notif = new Date();
-            new_notif.setTime((long) (this.event_start_time.getTime() - (farBack * 1000 * 60)));
-            this.notifcation_time = new_notif;
+
+            this.notification_time = this.notification_time.minusMinutes(farBack);
 
         }
         else if (metric == TimeMeasurement.HOUR) {
-            Date new_notif = new Date();
-            new_notif.setTime((long) (this.event_start_time.getTime() - (farBack * 1000 * 60 * 60)));
-            this.notifcation_time = new_notif;
+            this.notification_time = this.notification_time.minusHours(farBack);
         }
         else if (metric == TimeMeasurement.DAY) {
-            Date new_notif = new Date();
-            new_notif.setTime((long) (this.event_start_time.getTime() - (farBack * 1000 * 60 * 60 * 24)));
-            this.notifcation_time = new_notif;
+            this.notification_date = this.notification_date.minusDays(farBack);
         }
 
     }
@@ -50,10 +51,36 @@ public class Reminder {
         this.msg = msg;
     }
 
-    public Date getNotifcation_time() {
-        return notifcation_time;
+    public LocalTime getNotification_time() {
+        return notification_time;
     }
 
+    public void setNotification_time(LocalTime notification_time) {
+        this.notification_time = notification_time;
+    }
 
+    public LocalTime getEvent_start_time() {
+        return event_start_time;
+    }
 
+    public void setEvent_start_time(LocalTime event_start_time) {
+        this.event_start_time = event_start_time;
+    }
+
+    public LocalDate getNotification_date() {
+        return notification_date;
+    }
+
+    public void setNotification_date(LocalDate notification_date) {
+        this.notification_date = notification_date;
+    }
+
+    @Override
+    public String toString() {
+        return "Reminder{" +
+                "msg='" + msg + '\'' +
+                ", notification_time=" + notification_time +
+                ", notification_date=" + notification_date +
+                '}';
+    }
 }
