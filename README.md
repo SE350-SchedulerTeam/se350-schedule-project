@@ -21,4 +21,4 @@ Alternatively, you can run the game by executing the following command in termin
 `
 
 ## Screenshots
-![img.png](demo/screenshot.png)
+![img.png](screenshots/Screenshot_2022-11-14_135847.png)
