@@ -44,7 +44,7 @@
                      <children>
                         <Label text="Entry:" />
                         <TextField prefWidth="237.0" promptText="Event name" />
-                        <TextArea prefHeight="70.0" prefWidth="237.0" promptText="More details..." translateY="8.0" />
+                        <TextArea prefHeight="70.0" prefWidth="237.0" promptText="Description" translateY="8.0" />
                         <Label text="Remind me:" translateY="135.0" />
                         <ChoiceBox prefHeight="25.0" prefWidth="135.0" translateY="135.0" />
                         <Label layoutX="10.0" layoutY="10.0" text="From:" translateY="-2.0" />
