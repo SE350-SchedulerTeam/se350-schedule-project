@@ -10,7 +10,7 @@ You can use Maven plugin and the mvn goal from your IDE (Intellij and VS code). 
 
 ### Intellij or VS Code
 
-![img.png](screenshots/Screenshot 2022-11-14 134301.png)
+![img.png](screenshots/Screenshot_2022-11-14_134301.png)
 
 ### Using Maven
 
