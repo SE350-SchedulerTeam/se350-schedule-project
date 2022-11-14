@@ -1,6 +1,6 @@
 Scheduler App
 =============
-**Project 3 - Global Software Development**
+**SE 350 - Object-Oriented Software Development**
 
 ## Run
 
