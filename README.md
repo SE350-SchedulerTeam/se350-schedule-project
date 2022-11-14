@@ -18,7 +18,6 @@ Alternatively, you can run the game by executing the following command in termin
 
 `mvn clean javafx:run
 `
-`
 
 ## Screenshots
 ![img.png](screenshots/Screenshot_2022-11-14_135847.png)
