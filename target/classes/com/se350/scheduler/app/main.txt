@@ -1,0 +1,3 @@
+package com.se350.scheduler.app;
+
+import javafx.*;

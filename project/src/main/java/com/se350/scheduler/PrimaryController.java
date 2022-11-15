@@ -68,9 +68,9 @@ public class PrimaryController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        nameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
-//        dateColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("date1"));
-//        timeColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("date2"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("date1"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("parseInt" + ":" + "parseInt2"));
     }
     
     @FXML

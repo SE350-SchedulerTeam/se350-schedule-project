@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="App" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="com.se350.scheduler.App" />
+    <module name="project" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/project/src/main/java/com" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

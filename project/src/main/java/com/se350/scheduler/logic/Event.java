@@ -59,21 +59,70 @@ public class Event {
     //     return false;
     // }
 
-    // public String getName() {
-    //     return name;
-    // }
+     public String getName() {
+         return name;
+     }
 
-    // public void setName(String name) {
-    //     this.name = name;
-    // }
+     public void setName(String name) {
+         this.name = name;
+     }
 
-    // public String getDesc() {
-    //     return desc;
-    // }
+     public String getDesc() {
+         return desc;
+     }
 
-    // public void setDesc(String desc) {
-    //     this.desc = desc;
-    // }
+     public void setDesc(String desc) {
+         this.desc = desc;
+     }
+
+     public String getDate1() {
+        return date1;
+     }
+
+     public void setDate1(String date1) {
+        this.date1 = date1;
+     }
+
+     public String getDate2() {
+        return date2;
+     }
+
+     public void setDate2(String date2) {
+        this.date2 = date2;
+     }
+
+     public int parseInt() {
+        return parseInt;
+     }
+
+     public void setParseInt(int parseInt) {
+        this.parseInt = parseInt;
+     }
+
+    public int parseInt2() {
+        return parseInt;
+    }
+
+    public void setParseInt2(int parseInt2) {
+        this.parseInt2 = parseInt2;
+    }
+
+    public int parseInt3() {
+        return parseInt3;
+    }
+
+    public void setParseInt3(int parseInt3) {
+        this.parseInt3 = parseInt3;
+    }
+
+    public int parseInt4() {
+        return parseInt4;
+    }
+
+    public void setParseInt4(int parseInt4) {
+        this.parseInt4 = parseInt4;
+    }
+
 
     // public EventType getType() {
     //     return type;
