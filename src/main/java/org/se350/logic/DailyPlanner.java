@@ -1,4 +1,4 @@
-package org.se350.logic;//package com.se350.scheduler.logic;
+//package org.se350.logic;
 //
 //import java.util.*;
 //
