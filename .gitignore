@@ -105,6 +105,8 @@ modules.xml
 
 # List files
 *.lst
+inputFiles.lst
+createdFiles.lst
 
 # BlueJ files
 *.ctxt
