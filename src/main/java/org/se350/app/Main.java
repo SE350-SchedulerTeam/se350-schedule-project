@@ -13,12 +13,11 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/se350/gui/primary.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/primary.fxml"));
             Parent root = loader.load();
             stage.setScene(new Scene(root));
             stage.setTitle("Schedule Tracker");
             stage.setResizable(false);
-            stage.initStyle(StageStyle.UTILITY);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
