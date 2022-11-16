@@ -15,8 +15,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.se350.scheduler.PrimaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.se350.gui.PrimaryController">
    <children>
       <VBox alignment="CENTER" prefHeight="604.0" prefWidth="799.0" spacing="20.0">
          <children>
@@ -44,13 +45,13 @@
                         <Label text="Entry:" />
                         <TextField fx:id="nameInput" prefWidth="237.0" promptText="Event name" />
                         <TextArea fx:id="descriptionInput" prefHeight="70.0" prefWidth="237.0" promptText="Description" translateY="8.0" />
-                        <Label text="Remind me:" translateY="134.0" />
-                        <ChoiceBox prefHeight="25.0" prefWidth="135.0" translateY="134.0" />
-                        <Label layoutX="10.0" layoutY="10.0" text="From:" translateY="-4.0" />
-                        <DatePicker fx:id="startDateInput" prefHeight="25.0" prefWidth="135.0" promptText="Start" translateY="-4.0" />
+                        <Label text="Remind me:" translateY="136.0" />
+                        <ChoiceBox prefHeight="25.0" prefWidth="135.0" translateY="136.0" />
+                        <Label layoutX="10.0" layoutY="10.0" text="From:" translateY="-2.0" />
+                        <DatePicker fx:id="startDateInput" prefHeight="25.0" prefWidth="135.0" promptText="Start" translateY="-2.0" />
                         <Button mnemonicParsing="false" onAction="#createEvent" prefHeight="18.0" prefWidth="135.0" text="Create event" translateX="51.0" translateY="115.0" />
-                        <Label layoutX="10.0" layoutY="97.0" text="To:" translateY="-25.0" />
-                        <DatePicker fx:id="endDateInput" layoutX="10.0" layoutY="114.0" prefHeight="25.0" prefWidth="135.0" promptText="End" translateY="-25.0" />
+                        <Label layoutX="10.0" layoutY="97.0" text="To:" translateY="-22.0" />
+                        <DatePicker fx:id="endDateInput" layoutX="10.0" layoutY="114.0" prefHeight="25.0" prefWidth="135.0" promptText="End" translateY="-22.0" />
                      </children>
                   </VBox>
                   <TextField fx:id="startTimeHourInput" layoutX="670.0" layoutY="222.0" prefHeight="25.0" prefWidth="42.0" promptText="00" />
