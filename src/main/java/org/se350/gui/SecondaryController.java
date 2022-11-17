@@ -16,18 +16,13 @@ public class SecondaryController {
 
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     @FXML
     private Button secondaryButton;
-//    @FXML
-//    private void switchToPrimary() throws IOException {
-////        Main.setRoot("primary");
-//    }
 
     @FXML
     private void switchToPrimary(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/primary.fxml"));
         Parent root = loader.load();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
