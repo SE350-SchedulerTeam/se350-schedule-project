@@ -82,6 +82,7 @@ public class PrimaryController implements Initializable {
         nameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("date1"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("startHour"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("startMinute"));
     }
 
     // Create button
@@ -89,8 +90,8 @@ public class PrimaryController implements Initializable {
     void createEvent(ActionEvent event) {
         Event newEvent = new Event(nameInput.getText(),
                 descriptionInput.getText(),
-                startDateInput.getPromptText(),
-                endDateInput.getPromptText(),
+                startDateInput.getValue(),
+                endDateInput.getValue(),
                 Integer.parseInt(startTimeHourInput.getText()),
                 Integer.parseInt(startTimeMinuteInput.getText()),
                 Integer.parseInt(endTimeHourInput.getText()),
