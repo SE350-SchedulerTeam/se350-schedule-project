@@ -143,3 +143,4 @@ hs_err_pid*
 # List files
 *.lst
 *.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
