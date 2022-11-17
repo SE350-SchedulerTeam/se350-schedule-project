@@ -1,6 +1,8 @@
 package org.se350.logic;
 
 
+import java.time.LocalDate;
+
 public class Event {
     private String name;
     private String desc;
@@ -25,12 +27,12 @@ public class Event {
     //     this.reminder = r;
     // }
 
-    public Event(String name, String desc, String date1, String date2, int startHour, int startMinute,
-            int endHour, int endMinute) {
+    public Event(String name, String desc, LocalDate date1, LocalDate date2, int startHour, int startMinute,
+                 int endHour, int endMinute) {
         this.name = name;
         this.desc = desc;
-        this.date1 = date1;
-        this.date2 = date2;
+        this.date1 = String.valueOf(date1);
+        this.date2 = String.valueOf(date2);
         this.startHour = startHour;
         this.startMinute = startMinute;
         this.endHour = endHour;
