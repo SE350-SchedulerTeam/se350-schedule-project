@@ -89,8 +89,8 @@ public class PrimaryController implements Initializable {
     void createEvent(ActionEvent event) {
         Event newEvent = new Event(nameInput.getText(),
                 descriptionInput.getText(),
-                startDateInput.getPromptText(),
-                endDateInput.getPromptText(),
+                startDateInput.getValue(),
+                endDateInput.getValue(),
                 Integer.parseInt(startTimeHourInput.getText()),
                 Integer.parseInt(startTimeMinuteInput.getText()),
                 Integer.parseInt(endTimeHourInput.getText()),
@@ -110,7 +110,7 @@ public class PrimaryController implements Initializable {
     // Switch to calendar view
     @FXML
     private void switchToSecondary(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("secondary.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/secondary.fxml"));
         Parent root = loader.load();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

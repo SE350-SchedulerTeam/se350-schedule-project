@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 // JavaFX App
 public class Main extends Application {
@@ -12,10 +13,11 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("primary.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/primary.fxml"));
             Parent root = loader.load();
             stage.setScene(new Scene(root));
             stage.setTitle("Schedule Tracker");
+            stage.setResizable(false);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
