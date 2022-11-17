@@ -82,7 +82,6 @@ public class PrimaryController implements Initializable {
         nameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("date1"));
         timeColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("startHour"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("startMinute"));
     }
 
     // Create button
