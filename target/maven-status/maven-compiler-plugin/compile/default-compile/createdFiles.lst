@@ -1,5 +1,7 @@
+org\se350\logic\DailyPlanner$1$1.class
 org\se350\logic\Watcher.class
 org\se350\logic\TimeSlot.class
+org\se350\logic\DailyPlanner$1.class
 org\se350\logic\Notification.class
 org\se350\gui\PrimaryController.class
 org\se350\app\Main.class
@@ -10,3 +12,4 @@ org\se350\gui\SecondaryController.class
 org\se350\logic\Event.class
 org\se350\logic\TimeMeasurement.class
 org\se350\logic\EventType.class
+org\se350\logic\DailyPlanner.class
