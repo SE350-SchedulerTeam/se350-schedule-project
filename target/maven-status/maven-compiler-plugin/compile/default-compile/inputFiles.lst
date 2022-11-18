@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 C:\Users\Kogen\Desktop\Scheduler2\scheduler\src\main\java\org\se350\gui\SecondaryController.java
 C:\Users\Kogen\Desktop\Scheduler2\scheduler\src\main\java\org\se350\logic\Event.java
 C:\Users\Kogen\Desktop\Scheduler2\scheduler\src\main\java\org\se350\logic\DailyPlanner.java
@@ -11,3 +12,19 @@ C:\Users\Kogen\Desktop\Scheduler2\scheduler\src\main\java\org\se350\app\Main.jav
 C:\Users\Kogen\Desktop\Scheduler2\scheduler\src\main\java\org\se350\logic\Observer.java
 C:\Users\Kogen\Desktop\Scheduler2\scheduler\src\main\java\org\se350\logic\Reminder.java
 C:\Users\Kogen\Desktop\Scheduler2\scheduler\src\main\java\module-info.java
+=======
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\app\Main.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\logic\EventType.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\logic\TimeSlot.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\logic\Reminder.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\module-info.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\app\ConsoleAlertMain.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\logic\Observer.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\logic\Event.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\gui\SecondaryController.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\logic\Watcher.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\logic\DailyPlanner.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\logic\Notification.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\logic\TimeMeasurement.java
+S:\school\oop-finalproject\schedprojLogicIntegration\src\main\java\org\se350\gui\PrimaryController.java
+>>>>>>> Stashed changes

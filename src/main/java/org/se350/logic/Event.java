@@ -1,6 +1,7 @@
 package org.se350.logic;
 
 
+<<<<<<< Updated upstream
 public class Event {
     private String name;
     private String desc;
@@ -36,23 +37,45 @@ public class Event {
         this.endHour = endHour;
         this.endMinute = endMinute;
     }
+=======
+import java.time.LocalDate;
+import java.time.LocalTime;
 
-    // public void createReminder(long farBack, TimeMeasurement metric, String msg) {
-    //     Reminder r = new Reminder(farBack, metric, msg, timeslot.getStart_time(), timeslot.getDate());
-    //     this.reminder = r;
-    // }
+public class Event {
+    private String name;
+    private String desc;
+     private EventType type;
+     private TimeSlot timeslot;
+     private Reminder reminder;
 
-    // public boolean shouldNotify() {
-    //     if(this.reminder == null) {
-    //         return false;
-    //     }
+     public Event(String name, String desc, EventType type, TimeSlot timeslot) {
+         this.name = name;
+         this.desc = desc;
+         this.type = type;
+         this.timeslot = timeslot;
+         this.reminder = null;
+         // default reminder = 30 minutes before
+         Reminder r = new Reminder(30, TimeMeasurement.MINUTE, "You have an event!", timeslot.getStart_time(), timeslot.getStart_date());
+         this.reminder = r;
+     }
+>>>>>>> Stashed changes
 
-    //     // crude way to check if it's time to notify
-    //     if(reminder.getNotification_date().equals(LocalDate.now()) && reminder.getNotification_time().isBefore(LocalTime.now()))  {
-    //         return true;
-    //     }
-    //     return false;
-    // }
+     public void createReminder(long farBack, TimeMeasurement metric, String msg) {
+         Reminder r = new Reminder(farBack, metric, msg, timeslot.getStart_time(), timeslot.getStart_date());
+         this.reminder = r;
+     }
+
+     public boolean shouldNotify() {
+         if(this.reminder == null) {
+             return false;
+         }
+
+         // crude way to check if it's time to notify
+         if(reminder.getNotification_date().equals(LocalDate.now()) && reminder.getNotification_time().isBefore(LocalTime.now()))  {
+             return true;
+         }
+         return false;
+     }
 
      public String getName() {
          return name;
@@ -70,87 +93,57 @@ public class Event {
          this.desc = desc;
      }
 
-     public String getDate1() {
-        return date1;
-     }
-
-     public void setDate1(String date1) {
-        this.date1 = date1;
-     }
-
-     public String getDate2() {
-        return date2;
-     }
-
-     public void setDate2(String date2) {
-        this.date2 = date2;
-     }
-
-    public Integer getStartHour() {
-        return startHour;
+    public EventType getType() {
+        return type;
     }
 
-    public void setStartHour(Integer startHour) {
-        this.startHour = startHour;
+    public void setType(EventType type) {
+        this.type = type;
     }
 
-    public Integer getStartMinute() {
-        return startMinute;
+    public TimeSlot getTimeslot() {
+        return timeslot;
     }
 
-    public void setStartMinute(Integer startMinute) {
-        this.startMinute = startMinute;
+    public void setTimeslot(TimeSlot timeslot) {
+        this.timeslot = timeslot;
     }
 
-    public Integer getEndHour() {
-        return endHour;
+    public Reminder getReminder() {
+        return reminder;
     }
 
-    public void setEndHour(Integer endHour) {
-        this.endHour = endHour;
+    public void setReminder(Reminder reminder) {
+        this.reminder = reminder;
     }
 
-    public Integer getEndMinute() {
-        return endMinute;
+    public LocalDate getStartDate() {
+         return this.timeslot.getStart_date();
     }
 
-    public void setEndMinute(Integer endMinute) {
-        this.endMinute = endMinute;
+    public LocalTime getStartTime() {
+        return this.timeslot.getStart_time();
+    }
+
+    public LocalDate getEndDate() {
+        return this.timeslot.getEnd_date();
+    }
+
+    public LocalTime getEndTime() {
+        return this.timeslot.getEnd_time();
     }
 
 
-// public EventType getType() {
-    //     return type;
-    // }
+    @Override
+    public String toString() {
+        return "Event{" +
+                "name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+                ", type=" + type +
+                ", timeslot=" + timeslot +
+                ", reminder=" + reminder +
+                '}';
+    }
 
-    // public void setType(EventType type) {
-    //     this.type = type;
-    // }
 
-    // public TimeSlot getTimeslot() {
-    //     return timeslot;
-    // }
-
-    // public void setTimeslot(TimeSlot timeslot) {
-    //     this.timeslot = timeslot;
-    // }
-
-    // public void setReminder(Reminder reminder) {
-    //     this.reminder = reminder;
-    // }
-
-    // public Reminder getReminder() {
-    //     return reminder;
-    // }
-
-    // @Override
-    // public String toString() {
-    //     return "Event{" +
-    //             "name='" + name + '\'' +
-    //             ", desc='" + desc + '\'' +
-    //             ", type=" + type +
-    //             ", timeslot=" + timeslot +
-    //             ", reminder=" + reminder +
-    //             '}';
-    // }
 }

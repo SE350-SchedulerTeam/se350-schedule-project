@@ -1,5 +1,6 @@
 package org.se350.gui;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -16,10 +18,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import org.se350.logic.Event;
+import org.se350.logic.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class PrimaryController implements Initializable {
@@ -76,25 +81,72 @@ public class PrimaryController implements Initializable {
     @FXML
     private Button primaryButton;
 
+    @FXML
+    private ChoiceBox<String> remindChoice;
+
+    @FXML
+    private TextField remindInt;
+
+    @FXML
+    private TextField remindMsg;
+
+    private DailyPlanner dp;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         nameColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("name"));
-        dateColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("date1"));
-        timeColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("startHour"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("startDate"));
+        timeColumn.setCellValueFactory(new PropertyValueFactory<Event, String>("startTime"));
+
+        // populate choice box
+        ObservableList<String> choices = FXCollections.observableArrayList();
+        choices.addAll("Minutes", "Hours", "Days");
+        remindChoice.setItems(choices);
+
+        // logic
+        dp = new DailyPlanner();
     }
 
     // Create button
     @FXML
     void createEvent(ActionEvent event) {
-        Event newEvent = new Event(nameInput.getText(),
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
+        String start_time_string = startTimeHourInput.getText() + ":" + startTimeMinuteInput.getText();
+        String end_time_string = endTimeHourInput.getText() + ":" + endTimeMinuteInput.getText();
+
+        TimeSlot slot = new TimeSlot(startDateInput.getValue(), LocalTime.parse(start_time_string, formatter), endDateInput.getValue(), LocalTime.parse(end_time_string, formatter));
+        Event newEvent = new Event(
+                nameInput.getText(),
                 descriptionInput.getText(),
+<<<<<<< Updated upstream
                 startDateInput.getPromptText(),
                 endDateInput.getPromptText(),
                 Integer.parseInt(startTimeHourInput.getText()),
                 Integer.parseInt(startTimeMinuteInput.getText()),
                 Integer.parseInt(endTimeHourInput.getText()),
                 Integer.parseInt(endTimeMinuteInput.getText()));
+=======
+                EventType.WORK,
+                slot
+                );
+
+        TimeMeasurement reminder_measurement = null;
+        switch(remindChoice.getValue()) {
+            case "Minutes":
+                reminder_measurement = TimeMeasurement.MINUTE;
+                break;
+            case "Hours":
+                reminder_measurement = TimeMeasurement.HOUR;
+                break;
+            case "Days":
+                reminder_measurement = TimeMeasurement.DAY;
+                break;
+        }
+        newEvent.createReminder(Integer.parseInt(remindInt.getText()), reminder_measurement, remindMsg.getText());
+
+
+        dp.addEvent(newEvent);
+>>>>>>> Stashed changes
         ObservableList<Event> newEvents = tableView.getItems();
         newEvents.add(newEvent);
         tableView.setItems(newEvents);
@@ -117,5 +169,6 @@ public class PrimaryController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
     
 }
