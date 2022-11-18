@@ -1,43 +1,4 @@
 package org.se350.logic;
-
-
-<<<<<<< Updated upstream
-public class Event {
-    private String name;
-    private String desc;
-    private String date1;
-    private String date2;
-    private Integer startHour;
-    private Integer startMinute;
-    private Integer endHour;
-    private Integer endMinute;
-    // private EventType type;
-    // private TimeSlot timeslot;
-    // private Reminder reminder;
-
-    // public Event(String name, String desc, EventType type, TimeSlot timeslot) {
-    //     this.name = name;
-    //     this.desc = desc;
-    //     this.type = type;
-    //     this.timeslot = timeslot;
-    //     this.reminder = null;
-    //     // default reminder = 30 minutes before
-    //     Reminder r = new Reminder(30, TimeMeasurement.MINUTE, "You have an event!", timeslot.getStart_time(), timeslot.getDate());
-    //     this.reminder = r;
-    // }
-
-    public Event(String name, String desc, String date1, String date2, int startHour, int startMinute,
-            int endHour, int endMinute) {
-        this.name = name;
-        this.desc = desc;
-        this.date1 = date1;
-        this.date2 = date2;
-        this.startHour = startHour;
-        this.startMinute = startMinute;
-        this.endHour = endHour;
-        this.endMinute = endMinute;
-    }
-=======
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -58,7 +19,6 @@ public class Event {
          Reminder r = new Reminder(30, TimeMeasurement.MINUTE, "You have an event!", timeslot.getStart_time(), timeslot.getStart_date());
          this.reminder = r;
      }
->>>>>>> Stashed changes
 
      public void createReminder(long farBack, TimeMeasurement metric, String msg) {
          Reminder r = new Reminder(farBack, metric, msg, timeslot.getStart_time(), timeslot.getStart_date());

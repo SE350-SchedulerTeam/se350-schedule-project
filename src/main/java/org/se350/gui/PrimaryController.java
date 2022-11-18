@@ -118,14 +118,6 @@ public class PrimaryController implements Initializable {
         Event newEvent = new Event(
                 nameInput.getText(),
                 descriptionInput.getText(),
-<<<<<<< Updated upstream
-                startDateInput.getPromptText(),
-                endDateInput.getPromptText(),
-                Integer.parseInt(startTimeHourInput.getText()),
-                Integer.parseInt(startTimeMinuteInput.getText()),
-                Integer.parseInt(endTimeHourInput.getText()),
-                Integer.parseInt(endTimeMinuteInput.getText()));
-=======
                 EventType.WORK,
                 slot
                 );
@@ -146,7 +138,6 @@ public class PrimaryController implements Initializable {
 
 
         dp.addEvent(newEvent);
->>>>>>> Stashed changes
         ObservableList<Event> newEvents = tableView.getItems();
         newEvents.add(newEvent);
         tableView.setItems(newEvents);
@@ -162,7 +153,7 @@ public class PrimaryController implements Initializable {
     // Switch to calendar view
     @FXML
     private void switchToSecondary(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("secondary.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/secondary.fxml"));
         Parent root = loader.load();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
