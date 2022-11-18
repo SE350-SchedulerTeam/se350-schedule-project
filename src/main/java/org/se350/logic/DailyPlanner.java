@@ -21,10 +21,8 @@ public class DailyPlanner implements Watcher {
         TimerTask checkEventsTask = new TimerTask() {
             @Override
             public void run() {
-                System.out.println("poggies checking");
                 List<Event> notified_events = new ArrayList<Event>();
                 for(Event e : toRemind) {
-                    System.out.println("poggies looping: " + e.toString());
                     if(e.shouldNotify()) {
                         System.out.println("ALERT ALERT ALERT FOR: " + e.getReminder().getMsg());
                         notified_events.add(e);
