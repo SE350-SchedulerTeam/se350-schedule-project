@@ -3,12 +3,12 @@ package org.se350.logic;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.After;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
+
+
 import static org.junit.Assert.*;
 import static org.se350.logic.EventType.SCHOOL;
 import static org.se350.logic.EventType.WORK;
@@ -17,7 +17,6 @@ import static org.se350.logic.EventType.WORK;
 public class DailyPlannerTest {
 
     private DailyPlanner dailyPlanner;
-    private List<Event> eventList;
     private Event event;
     private Notification notification;
     private LocalTime startTime;
@@ -27,7 +26,6 @@ public class DailyPlannerTest {
     @Before
     public void setUp() throws Exception {
         dailyPlanner = new DailyPlanner();
-        eventList = new ArrayList<>();
         notification = new Notification();
         startTime = LocalTime.of(10, 30);
         endTime = LocalTime.of(11, 0);
@@ -38,35 +36,42 @@ public class DailyPlannerTest {
 
     @Test
     public void addEvent() {
-         eventList.add(event);
-         assertNotNull(eventList);
-         assertEquals(localDate, event.getTimeslot().getDate());
-         assertEquals(startTime, event.getTimeslot().getStart_time());
-         assertEquals(endTime, event.getTimeslot().getEnd_time());
-         assertEquals(WORK, eventList.get(0).getType());
-         assertEquals("Attend Meeting", event.getDesc());
-         assertEquals("Task", event.getName());
-         assertEquals(1, eventList.size());
+
+         dailyPlanner.addEvent(event);
+         assertNotNull(dailyPlanner);
+         assertEquals(localDate, dailyPlanner.getEvents().get(0).getTimeslot().getDate());
+         assertEquals(startTime, dailyPlanner.getEvents().get(0).getTimeslot().getStart_time());
+         assertEquals(endTime, dailyPlanner.getEvents().get(0).getTimeslot().getEnd_time());
+         assertEquals(WORK, dailyPlanner.getEvents().get(0).getType());
+         assertEquals("Attend Meeting", dailyPlanner.getEvents().get(0).getDesc());
+         assertEquals("Task", dailyPlanner.getEvents().get(0).getName());
+         assertEquals(1, dailyPlanner.getEvents().size());
 
          // add 1 more event
-        eventList.add(new Event("Homework", "Finish Unit Tests for Final Project",
+        Event school = new Event("Homework", "Finish Unit Tests for Final Project",
                 SCHOOL,
                 new TimeSlot(LocalDate.of(2022, 11, 25),
                         LocalTime.of(13, 10),
                         LocalTime.of(17, 00)
-                        )));
-        assertEquals(2, eventList.size());
+                        ));
+        dailyPlanner.addEvent(school);
+        assertEquals(SCHOOL, dailyPlanner.getEvents().get(1).getType());
+        assertEquals(2, dailyPlanner.getEvents().size());
     }
 
     @Test
     public void removeEvent() {
-        assertFalse(eventList.contains(event));
+        assertThrows(AssertionError.class, () -> {
+            dailyPlanner.remove(1);
+        });
+        assertNotEquals(1, dailyPlanner.getEvents().size());
+
     }
 
     @Test
     public void getEvents() {
-        eventList.add(event);
-        assertEquals(event, eventList.get(0));
+//        eventList.add(event);
+//        assertEquals(event, eventList.get(0));
     }
 
     @Test
