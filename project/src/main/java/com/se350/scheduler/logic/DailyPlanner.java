@@ -35,13 +35,6 @@ public class DailyPlanner implements Watcher{
 
     }
 
-//    public boolean addEvent(Event e) {
-//        //@TODO: check conflicts
-//        events.add(e);
-//        toRemind.add(e);
-//        return true;
-//    }
-
     //refactoring add event to use the observer pattern
     public boolean addEvent(Event e){
         events.add(e);
