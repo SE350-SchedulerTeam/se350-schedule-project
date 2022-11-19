@@ -60,6 +60,7 @@ public class DailyPlannerTest {
 
     @Test
     public void removeEvent() {
+        assertFalse(eventList.contains(event));
     }
 
     @Test
