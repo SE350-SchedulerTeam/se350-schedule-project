@@ -32,9 +32,7 @@ public class DailyPlanner implements Watcher{
                                 alert.show();
                             }
                         });
-                        //@TODO: Send UI Alert
-                        System.out.println("ALERT ALERT ALERT FOR: " + e.getReminder().getMsg());
-                        notified_events.add(e);
+
                     }
                 }
                 toRemind.removeAll(notified_events);
