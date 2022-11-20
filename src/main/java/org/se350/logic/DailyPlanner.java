@@ -79,6 +79,3 @@ public class DailyPlanner implements Watcher{
     }
 
 }
-
-
-
