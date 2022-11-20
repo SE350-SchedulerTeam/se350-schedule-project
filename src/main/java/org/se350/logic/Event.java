@@ -1,6 +1,5 @@
 package org.se350.logic;
 
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 
