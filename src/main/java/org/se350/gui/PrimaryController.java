@@ -110,7 +110,7 @@ public class PrimaryController implements Initializable {
     // Switch to calendar view
     @FXML
     private void switchToSecondary(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/secondary.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org.se350.gui/secondary.fxml"));
         Parent root = loader.load();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

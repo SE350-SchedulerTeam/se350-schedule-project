@@ -13,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/primary.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org.se350.gui/primary.fxml"));
             Parent root = loader.load();
             stage.setScene(new Scene(root));
             stage.setTitle("Schedule Tracker");
