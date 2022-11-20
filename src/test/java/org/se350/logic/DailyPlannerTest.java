@@ -20,7 +20,8 @@ public class DailyPlannerTest {
     private Notification notification;
     private LocalTime startTime;
     private LocalTime endTime;
-    private LocalDate localDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     TimeSlot timeSlot;
     @Before
     public void setUp() throws Exception {
@@ -29,8 +30,9 @@ public class DailyPlannerTest {
         notification = new Notification();
         startTime = LocalTime.of(10, 30);
         endTime = LocalTime.of(11, 0);
-        localDate = LocalDate.of(2022, 11, 25);
-        timeSlot = new TimeSlot(localDate, startTime, endTime);
+        startDate = LocalDate.of(2022, 11, 25);
+        endDate = LocalDate.of(2022, 11, 25);
+        timeSlot = new TimeSlot(startDate, startTime, endDate, endTime);
         event = new Event("Task","Attend Meeting", WORK, timeSlot);
     }
 
@@ -40,7 +42,8 @@ public class DailyPlannerTest {
          dailyPlanner.addEvent(event);
 
          assertNotNull(dailyPlanner);
-         assertEquals(localDate, dailyPlanner.getEvents().get(0).getTimeslot().getDate());
+         assertEquals(startDate, dailyPlanner.getEvents().get(0).getTimeslot().getStart_date());
+         assertEquals(endDate, dailyPlanner.getEvents().get(0).getTimeslot().getEnd_date());
          assertEquals(startTime, dailyPlanner.getEvents().get(0).getTimeslot().getStart_time());
          assertEquals(endTime, dailyPlanner.getEvents().get(0).getTimeslot().getEnd_time());
          assertEquals(WORK, dailyPlanner.getEvents().get(0).getType());
@@ -53,6 +56,7 @@ public class DailyPlannerTest {
                 SCHOOL,
                 new TimeSlot(LocalDate.of(2022, 11, 25),
                         LocalTime.of(13, 10),
+                        LocalDate.of(2022, 11, 25),
                         LocalTime.of(17, 00)
                         ));
         dailyPlanner.addEvent(school);
