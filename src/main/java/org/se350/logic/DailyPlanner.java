@@ -32,23 +32,19 @@ public class DailyPlanner implements Watcher{
         };
         // every min check time
         this.notify_timer.scheduleAtFixedRate(checkEventsTask, 0l, TIMER_INTERVAL);
-
     }
 
     //refactoring add event to use the observer pattern
-    public boolean addEvent(Event e){
+    public void addEvent(Event e){
         events.add(e);
         //notification that even was added
         notifyObservers("Event Added " + e.getDesc());
-        return true;
     }
-    Event remove(int pos) {
-        Event removedEvent = null;
-        if(pos <= events.size() && pos >=0)
-            removedEvent = events.get(pos);
-        assert removedEvent != null;
-        notifyObservers("Event removed " + removedEvent.getDesc());
-        return removedEvent;
+
+    void remove(Event e) {
+        if(events.size() > 0)
+            events.remove(e);
+        notifyObservers("Event removed " + e.getDesc());
     }
 
     public List<Event> getEvents() {

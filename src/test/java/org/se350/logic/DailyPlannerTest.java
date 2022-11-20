@@ -8,14 +8,13 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import static org.junit.Assert.*;
 import static org.se350.logic.EventType.SCHOOL;
 import static org.se350.logic.EventType.WORK;
 
 
 public class DailyPlannerTest {
-
+    private List<Event> events;
     private DailyPlanner dailyPlanner;
     private Event event;
     private Notification notification;
@@ -26,6 +25,7 @@ public class DailyPlannerTest {
     @Before
     public void setUp() throws Exception {
         dailyPlanner = new DailyPlanner();
+        events = new ArrayList<>();
         notification = new Notification();
         startTime = LocalTime.of(10, 30);
         endTime = LocalTime.of(11, 0);
@@ -36,8 +36,9 @@ public class DailyPlannerTest {
 
     @Test
     public void addEvent() {
-
+        assertEquals(0, dailyPlanner.getEvents().size());
          dailyPlanner.addEvent(event);
+
          assertNotNull(dailyPlanner);
          assertEquals(localDate, dailyPlanner.getEvents().get(0).getTimeslot().getDate());
          assertEquals(startTime, dailyPlanner.getEvents().get(0).getTimeslot().getStart_time());
@@ -61,17 +62,34 @@ public class DailyPlannerTest {
 
     @Test
     public void removeEvent() {
-        assertThrows(AssertionError.class, () -> {
-            dailyPlanner.remove(1);
-        });
         assertNotEquals(1, dailyPlanner.getEvents().size());
+        assertTrue(dailyPlanner.getEvents().isEmpty());
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            dailyPlanner.remove(events.get(0));
+        });
+        assertTrue(dailyPlanner.getEvents().isEmpty());
+        assertEquals(0, dailyPlanner.getEvents().size());
 
+        dailyPlanner.addEvent(event);
+        assertTrue(dailyPlanner.getEvents().contains(event));
+        assertEquals(1, dailyPlanner.getEvents().size());
+
+        dailyPlanner.remove(event);
+        assertEquals(0, dailyPlanner.getEvents().size());
+        assertFalse(dailyPlanner.getEvents().contains(event));
     }
 
     @Test
     public void getEvents() {
-//        eventList.add(event);
-//        assertEquals(event, eventList.get(0));
+        dailyPlanner.addEvent(event);
+        for(Event events : dailyPlanner.getEvents()){
+            assertEquals(events.getType(), dailyPlanner.getEvents().get(0).getType());
+        }
+        assertNotNull(dailyPlanner.getEvents());
+        assertTrue(dailyPlanner.getEvents().contains(event));
+        dailyPlanner.remove(event);
+        assertEquals(0, dailyPlanner.getEvents().size());
+        assertTrue(dailyPlanner.getEvents().isEmpty());
     }
 
     @Test
@@ -95,7 +113,7 @@ public class DailyPlannerTest {
 
     @After
     public void tearDown() throws Exception {
-        // System.out.println("Tearing down");
+        System.out.println("Tearing down");
         dailyPlanner = null;
         assertNull(dailyPlanner);
     }
