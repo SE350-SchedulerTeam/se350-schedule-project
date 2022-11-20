@@ -1,53 +1,56 @@
-package com.se350.scheduler.logic;
+package org.se350.logic;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class TimeSlot {
-    private LocalDate date;
+    private LocalDate start_date;
+    private LocalDate end_date;
     private LocalTime start_time;
     private LocalTime end_time;
 
-
-
-    public TimeSlot (LocalDate date, LocalTime start_time, LocalTime end_time) {
-        this.date = date;
+    public TimeSlot (LocalDate start_date, LocalDate end_date, LocalTime start_time, LocalTime end_time) {
+        this.start_date = start_date;
+        this.end_date = end_date;
         this.start_time = start_time;
         this.end_time = end_time;
     }
 
     //@TODO: a method to check if a timeslot conflicts (public boolean conflicts(TimeSlot other)
 
-    public LocalTime getStart_time() {
+    /*
+     * Get methods
+     */
+    public LocalDate getStartDate() {
+        return start_date;
+    }
+
+    public LocalDate getEndDate() {
+        return end_date;
+    }
+
+    public LocalTime getStartTime() {
         return start_time;
     }
 
-    public void setStart_time(LocalTime start_time) {
-        this.start_time = start_time;
-    }
+    public LocalTime getEndTime() { return end_time; }
 
-    public LocalTime getEnd_time() {
-        return end_time;
-    }
+    /*
+     * Set methods
+     */
+    public void setStartDate(LocalDate date) { this.start_date = date; }
 
-    public void setEnd_time(LocalTime end_time) {
-        this.end_time = end_time;
-    }
+    public void setEndDate(LocalDate date) { this.end_date = date; }
 
-    public LocalDate getDate() {
-        return date;
-    }
+    public void setStartTime(LocalTime time) { this.start_time = time; }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
+    public void setEndTime(LocalTime time) { this.end_time = time; }
 
-    @Override
     public String toString() {
-        return "TimeSlot{" +
-                "date=" + date +
-                ", start_time=" + start_time +
-                ", end_time=" + end_time +
-                '}';
+        String msg = "TimeSlot{date=" + start_date;
+        if (this.start_date != this.end_date) msg += " to " + end_date;
+        msg += ", start_time=" + start_time + ", end_time=" + end_time + "}";
+        return msg;
     }
+
 }
