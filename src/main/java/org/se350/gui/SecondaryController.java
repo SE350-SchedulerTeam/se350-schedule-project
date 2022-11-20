@@ -22,7 +22,7 @@ public class SecondaryController {
 
     @FXML
     private void switchToPrimary(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/primary.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org.se350.gui/primary.fxml"));
         Parent root = loader.load();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
