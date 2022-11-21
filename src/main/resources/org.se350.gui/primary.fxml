@@ -13,17 +13,19 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.se350.gui.PrimaryController">
    <children>
-      <VBox alignment="CENTER" prefHeight="604.0" prefWidth="799.0" spacing="20.0">
+      <VBox alignment="CENTER" layoutX="-14.0" prefHeight="604.0" prefWidth="799.0" spacing="20.0">
          <children>
             <ButtonBar prefHeight="40.0" prefWidth="429.0">
-              <buttons>
+               <buttons>
                   <Button fx:id="primaryButton" onAction="#switchToSecondary" text="📆 Calender View" />
-              </buttons>
+               </buttons>
             </ButtonBar>
             <Label alignment="BASELINE_LEFT" prefHeight="21.0" prefWidth="766.0" snapToPixel="false" text="Event Tracker">
                <font>
@@ -33,45 +35,69 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <TableView fx:id="tableView" editable="true" prefHeight="422.0" prefWidth="510.0">
-                    <columns>
-                      <TableColumn fx:id="nameColumn" prefWidth="293.0" text="Event" />
-                      <TableColumn fx:id="dateColumn" prefWidth="127.0" text="Date" />
+                     <columns>
+                        <TableColumn fx:id="nameColumn" prefWidth="293.0" text="Event" />
+                        <TableColumn fx:id="dateColumn" prefWidth="127.0" text="Date" />
                         <TableColumn fx:id="timeColumn" prefWidth="89.0" text="Time" />
-                    </columns>
+                     </columns>
                   </TableView>
                   <VBox layoutX="529.0" layoutY="53.0" prefHeight="363.0" prefWidth="237.0">
                      <children>
                         <Label text="Entry:" />
                         <TextField fx:id="nameInput" prefWidth="237.0" promptText="Event name*" />
                         <TextArea fx:id="descriptionInput" prefHeight="70.0" prefWidth="237.0" promptText="Description" translateY="8.0" />
-                        <Label text="Remind me:" translateY="136.0" />
-                        <ChoiceBox prefHeight="25.0" prefWidth="135.0" translateY="136.0" />
-                        <Label layoutX="10.0" layoutY="10.0" text="From:" translateY="-4.0" />
-                        <DatePicker fx:id="startDateInput" prefHeight="25.0" prefWidth="135.0" promptText="Start*" translateY="-4.0" />
-                        <Button mnemonicParsing="false" onAction="#createEvent" prefHeight="18.0" prefWidth="135.0" text="Create event" translateX="51.0" translateY="115.0" />
-                        <Label layoutX="10.0" layoutY="97.0" text="To:" translateY="-25.0" />
-                        <DatePicker fx:id="endDateInput" layoutX="10.0" layoutY="114.0" prefHeight="25.0" prefWidth="135.0" promptText="End" translateY="-25.0" />
+                        <Separator opacity="0.0" prefHeight="24.0" prefWidth="237.0" />
+                        <VBox prefHeight="101.0" prefWidth="237.0">
+                           <children>
+                              <Label text="From:" />
+                              <HBox prefHeight="38.0" prefWidth="237.0">
+                                 <children>
+                                    <DatePicker fx:id="startDateInput" prefHeight="25.0" prefWidth="135.0" promptText="Start*" />
+                                    <TextField fx:id="startTimeHourInput" prefHeight="25.0" prefWidth="42.0" promptText="00" />
+                                    <Label text=":">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="startTimeMinuteInput" prefHeight="25.0" prefWidth="42.0" promptText="00" />
+                                 </children>
+                              </HBox>
+                              <Label text="To:" />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <DatePicker fx:id="endDateInput" prefHeight="25.0" prefWidth="135.0" promptText="End" />
+                                    <TextField fx:id="endTimeHourInput" prefHeight="25.0" prefWidth="42.0" promptText="00" />
+                                    <Label text=":">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="endTimeMinuteInput" prefHeight="25.0" prefWidth="42.0" promptText="00" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="82.0" prefWidth="110.0">
+                           <children>
+                              <Label text="Remind me:" />
+                              <TextField fx:id="remindMsg" promptText="Reminder Message" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="237.0">
+                                 <children>
+                                    <TextField fx:id="remindInt" prefHeight="25.0" prefWidth="56.0" promptText="#" text="#" />
+                                    <ChoiceBox id="reminderChoice" fx:id="remindChoice" prefHeight="25.0" prefWidth="111.0" />
+                                    <Separator opacity="0.0" orientation="VERTICAL" prefHeight="32.0" prefWidth="6.0" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Before" />
+                                 </children>
+                              </HBox>
+                              <CheckBox mnemonicParsing="false" prefHeight="32.0" prefWidth="57.0" text="All day" />
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
-                  <TextField fx:id="startTimeHourInput" layoutX="670.0" layoutY="222.0" prefHeight="25.0" prefWidth="42.0" promptText="00" />
-                  <Label layoutX="711.0" layoutY="222.0" text=":" translateX="5.0">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="startTimeMinuteInput" layoutX="724.0" layoutY="222.0" prefHeight="25.0" prefWidth="42.0" promptText="00" />
-                  <TextField fx:id="endTimeHourInput" layoutX="670.0" layoutY="269.0" prefHeight="25.0" prefWidth="42.0" promptText="00" />
-                  <Label layoutX="716.0" layoutY="269.0" text=":">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="endTimeMinuteInput" layoutX="724.0" layoutY="269.0" prefHeight="25.0" prefWidth="42.0" promptText="00" />
-                  <Separator layoutX="529.0" layoutY="192.0" prefHeight="17.0" prefWidth="237.0" translateY="-10.0" />
-                  <CheckBox layoutX="689.0" layoutY="321.0" mnemonicParsing="false" text="All day" />
+                  <Button layoutX="562.0" layoutY="404.0" mnemonicParsing="false" onAction="#createEvent" prefHeight="18.0" prefWidth="135.0" text="Create event" />
                </children>
             </AnchorPane>
-          <Button mnemonicParsing="false" onAction="#removeEvent" prefHeight="25.0" prefWidth="72.0" text="Remove" translateX="90.0" />
+            <Button mnemonicParsing="false" onAction="#removeEvent" prefHeight="25.0" prefWidth="72.0" text="Remove" translateX="90.0" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
