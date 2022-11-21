@@ -28,7 +28,7 @@ public class DailyPlanner implements Watcher{
                         notified_events.add(e);
                         Platform.runLater(new Runnable() {
                             public void run() {
-                                Alert alert = new Alert(Alert.AlertType.WARNING, e.getReminder().getMsg());
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION, e.getReminder().getMsg());
                                 alert.show();
                             }
                         });

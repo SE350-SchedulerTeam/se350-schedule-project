@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.calendarfx.view.print.PrintView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane prefHeight="634.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.se350.gui.PrintController">
+    <children>
+       <BorderPane prefHeight="724.0" prefWidth="781.0">
+          <center>
+             <PrintView BorderPane.alignment="CENTER" />
+          </center>
+       </BorderPane>
+       <Button fx:id="printButton" layoutX="25.0" layoutY="673.0" onAction="#switchToSecondary" text="📆 Calender View" />
+    </children>
+ </AnchorPane>
