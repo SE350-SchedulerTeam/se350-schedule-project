@@ -79,9 +79,6 @@ public class PrimaryController implements Initializable {
     @FXML
     private TextField remindInt;
 
-    @FXML
-    private TextField remindMsg;
-
     private DailyPlanner dp;
 
 
@@ -93,7 +90,7 @@ public class PrimaryController implements Initializable {
 
         // populate choice box
         ObservableList<String> choices = FXCollections.observableArrayList();
-        choices.addAll("Minutes", "Hours", "Days");
+        choices.addAll("Minutes before", "Hours before", "Days before");
         remindChoice.setItems(choices);
 
         // logic
@@ -128,7 +125,7 @@ public class PrimaryController implements Initializable {
                 break;
         }
 
-        newEvent.createReminder(Integer.parseInt(remindInt.getText()), reminder_measurement, remindMsg.getText());
+        newEvent.createReminder(Integer.parseInt(remindInt.getText()), reminder_measurement, "Reminder: " + nameInput.getText());
 
         dp.addEvent(newEvent);
         ObservableList<Event> newEvents = tableView.getItems();
