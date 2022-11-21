@@ -10,7 +10,7 @@ You can use Maven plugin and the mvn goal from your IDE (Intellij and VS code). 
 
 ### Intellij or VS Code
 
-![img.png](screenshots/Screenshot_2022-11-14_134301.png)
+![img.png](demos/Screenshot_2022-11-14_134301.png)
 
 ### Using Maven
 
@@ -20,4 +20,9 @@ Alternatively, you can run the game by executing the following command in termin
 `
 
 ## Screenshots
-![img.png](screenshots/Screenshot_2022-11-14_135847.png)
+**List view:**
+![img.png](demos/Screenshot172406.png)
+**Calendar view:**
+![img.png](demos/Screenshot172327.png)
+**Print view:**
+![img.png](demos/Screenshot172552.png)
