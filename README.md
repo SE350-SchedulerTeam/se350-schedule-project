@@ -22,7 +22,7 @@ Alternatively, you can run the game by executing the following command in termin
 ## Screenshots
 **List view:**
 ![img.png](demos/Screenshot172406.png)
-**Calendar view:**
+**Calendar view (non-functional):**
 ![img.png](demos/Screenshot172327.png)
-**Print view:**
+**Print view (non-functional):**
 ![img.png](demos/Screenshot172552.png)
